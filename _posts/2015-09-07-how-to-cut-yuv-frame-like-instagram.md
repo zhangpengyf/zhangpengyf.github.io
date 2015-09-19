@@ -1,3 +1,16 @@
+---
+layout: post
+title:  "如何裁剪YUV420图像，抓取指定区域，制作方形视频，模仿Instagram"
+date:   2015-09-20 20:14:54
+categories: 音视频
+excerpt: YUV402 视频采集
+---
+
+* content
+{:toc}
+
+
+
 
 ###I420格式介绍
     在webrtc中android和ios系统采集摄像头获取到原始数据后，
