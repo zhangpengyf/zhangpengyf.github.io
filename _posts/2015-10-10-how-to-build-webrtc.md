@@ -11,16 +11,16 @@ excerpt: webrtc
 
 
 
-##IOS在mac下的编译方法
+
 ###（1）使用ninja编译
 ```
-export GYP_CROSSCOMPILE=1
-export GYP_DEFINES="OS=ios target_arch=arm"
-export GYP_GENERATOR_FLAGS="output_dir=out_ios"
-export GYP_GENERATORS=ninja
-cd src/
-webrtc/build/gyp_webrtc
-ninja -C out_ios/Debug-iphoneos AppRTCDemo
+	export GYP_CROSSCOMPILE=1
+	export GYP_DEFINES="OS=ios target_arch=arm"
+	export GYP_GENERATOR_FLAGS="output_dir=out_ios"
+	export GYP_GENERATORS=ninja
+	cd src/
+	webrtc/build/gyp_webrtc
+	ninja -C out_ios/Debug-iphoneos AppRTCDemo
 
 ```
 ###（2）使用xcode编译
