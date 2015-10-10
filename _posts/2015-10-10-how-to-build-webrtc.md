@@ -13,6 +13,7 @@ excerpt: webrtc
 
 
 ###使用ninja编译
+
 ```
 export GYP_CROSSCOMPILE=1
 export GYP_DEFINES="OS=ios target_arch=arm"
@@ -23,6 +24,7 @@ webrtc/build/gyp_webrtc
 ninja -C out_ios/Debug-iphoneos AppRTCDemo
 
 ```
+
 ###使用xcode编译
 
 ```
