@@ -27,6 +27,6 @@ excerpt: webrtc
 
  export GYP_DEFINES="OS=ios"
  export GYP_GENERATOR_FLAGS="xcode_project_version=3.2 xcode_ninja_target_pattern=All_iOS  xcode_ninja_executable_target_pattern=AppRTCDemo|libjingle_peerconnection_unittest|libjingle_peerconnection_objc_test output_dir=out_ios"
-export GYP_GENERATORS="ninja,xcode-ninja"
+ export GYP_GENERATORS="ninja,xcode-ninja"
  cd src
  webrtc/build/gyp_webrtc
