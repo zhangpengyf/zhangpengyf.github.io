@@ -19,7 +19,7 @@ github: zhangpengyf
 
 # avatar and Favicon
 avatar: assets/img/avatar.jpg
-favicon: assets/img/avatar.jpg
+favicon: assets/img/favicon.ico
 
 # disqus config
 disqus:
