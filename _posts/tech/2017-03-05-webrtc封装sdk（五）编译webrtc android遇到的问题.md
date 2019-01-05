@@ -6,6 +6,7 @@ tags: webrtc
 description: webrtc封装sdk（五）编译webrtc android遇到的问题
 ---
 
+### 简介
 按照官方的编译步骤就可以编译出android版本的各个静态库libxxx.a
 当我们使用这些静态库，并且还需要编译自己写的那些c++代码时，可能会遇到以下两个问题
 

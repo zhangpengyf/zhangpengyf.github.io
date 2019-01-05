@@ -6,6 +6,7 @@ tags: webrtc
 description: webrtc封装sdk（八）使用webrtc desktop_capture截屏
 ---
 
+
 ### 简介
 webrtc的modules中有一个模块desktop_capture，该模块负责截屏，目前只支持windows和mac平台，android,ios没有实现。
 
