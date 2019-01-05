@@ -4,7 +4,7 @@ email: zhangpengyf@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   张鹏（皓文）的博客
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: http://yansu.org # the base hostname & protocol for your site
+url: http://zhangpengyf.github.io/ # the base hostname & protocol for your site
 rss_url: /pages/feed.xml
 author: zhang peng
 
@@ -19,12 +19,12 @@ github: zhangpengyf
 
 # avatar and Favicon
 avatar: assets/img/avatar.jpg
-favicon: http://imgs.yansu.org/site-favicon.ico
+favicon: assets/img/avatar.jpg
 
 # disqus config
 disqus:
   shortname: haowen.zp
-  
+
 # google analytics config
 ga:
   id: UA-54767140-1
