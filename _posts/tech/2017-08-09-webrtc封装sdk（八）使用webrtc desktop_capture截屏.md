@@ -6,8 +6,8 @@ tags: webrtc
 description: webrtc封装sdk（八）使用webrtc desktop_capture截屏
 ---
 
+# 简介
 
-### 简介
 webrtc的modules中有一个模块desktop_capture，该模块负责截屏，目前只支持windows和mac平台，android,ios没有实现。
 
 desktop_capture中有两种截屏方式，第一种是截单个窗口，叫做WindowCapturer，
@@ -23,28 +23,31 @@ window_capture/screen_capture都继承于基类DesktopCapturer：
       virtual void Capture(const DesktopRegion& region) = 0;
     };
 
-### 一、WindowCapture
+# 一、WindowCapture
+
 WindowCapture主要增加了获取窗口列表，和设置截屏窗口id的接口：
 
       virtual bool GetWindowList(WindowList* windows);
       virtual bool SelectWindow(WindowId id);
 
-### 二、ScreenCapture
+# 二、ScreenCapture
+
 ScreenCapture主要增加了获取屏幕列表，和设置截屏屏幕id的接口：
 
       virtual bool GetScreenList(ScreenList* screens);
       virtual bool SelectScreen(ScreenId id);
 
-### 三、使用流程
+# 三、使用流程
+
 接口都比较简单，很容易使用，大概的流程如下：
+
  1. 创建对象
  2. 初始化截屏，设置回调函数
  3. 开启线程循环截图
 
-
     screen_capture_ = webrtc::ScreenCapturer::Create(webrtc::DesktopCaptureOptions::CreateDefault());
     screen_capture_->SelectScreen(0);
-    
+  
     bool ImageCaptureThreadFunc(void* param)
     {
         webrtc::DesktopCapturer* capture = static_cast<webrtc::DesktopCapturer*>(param);
@@ -53,7 +56,8 @@ ScreenCapture主要增加了获取屏幕列表，和设置截屏屏幕id的接�
         return true;
     }
 
-### 四、截屏数据处理
+# 四、截屏数据处理
+
 截屏后得到的数据格式是rgb，需要使用libyuv将数据从rgb转换为yuv420，然后传入编码器和进行本地渲染。
 转换时注意填写正确的原始数据类型，windows下格式为webrtc::kARGB
 
@@ -82,7 +86,8 @@ ScreenCapture主要增加了获取屏幕列表，和设置截屏屏幕id的接�
     	delete frame;
     }
 
-### 五、传递给videoSendStream
+# 五、传递给videoSendStream
+
 通过VideoSendStream的input接口可以把采集到的图像投递进去，编码发送。
 
     video_stream_s_->Input()->IncomingCapturedFrame(videoFrame);
