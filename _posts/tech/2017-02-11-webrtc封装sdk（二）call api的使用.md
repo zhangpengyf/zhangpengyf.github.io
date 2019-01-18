@@ -41,24 +41,19 @@ Call主要负责管理四种数据流（即Stream）：
 
 在初始化音视频sdk时需要创建一个call对象
 
-    Call::Config callConfig;
-    
-    gVoe = VoiceEngine::Create();
-    
-    webrtc::AudioState::Config audioStateConfig;
-    
-    audioStateConfig.voice_engine = gVoe;
-    
-    callConfig.audio_state = AudioState::Create(audioStateConfig);
-    
-    callConfig.bitrate_config.max_bitrate_bps = 500*1000;
-    
-    callConfig.bitrate_config.min_bitrate_bps = 100*1000;
-    
-    callConfig.bitrate_config.start_bitrate_bps = 250*1000;
-    
-    g_call = Call::Create(callConfig); 
+```cpp
 
+Call::Config callConfig;
+gVoe = VoiceEngine::Create();
+webrtc::AudioState::Config audioStateConfig;
+audioStateConfig.voice_engine = gVoe;
+callConfig.audio_state = AudioState::Create(audioStateConfig);
+callConfig.bitrate_config.max_bitrate_bps = 500*1000;
+callConfig.bitrate_config.min_bitrate_bps = 100*1000;
+callConfig.bitrate_config.start_bitrate_bps = 250*1000;
+g_call = Call::Create(callConfig); 
+
+```
 
 我们可以通过VoiceEngie的实例gVoe来对声音进行各种操作，创建完Call的实例就可以开始创建4种Stream了。
 
@@ -66,7 +61,7 @@ Call主要负责管理四种数据流（即Stream）：
 一般创建一个VideoSendStream即可，发送本地一个视频流
 
 首先需要配置视频编码参数，创建编码器
-    
+```cpp
       VideoSendStream::Config streamConfig(g_transport);
       streamConfig.encoder_settings.payload_name = "VP9";
       streamConfig.encoder_settings.payload_type = PT_VP9;
@@ -76,14 +71,17 @@ Call主要负责管理四种数据流（即Stream）：
       VideoEncoderConfig encodeConfig;
       VideoSendStream* stream = g_call->CreateVideoSendStream(
       std::move(streamConfig), std::move(encodeConfig));
-
+```
 ## VideoReceiveStream
 多人会话中，需要根据远端的ssrc来创建多个对应的VideoReceiveStream
 对某一个远端视频流的管理通过ssrc对应的VideoReceiveStream接口来操作
-    
+
+```cpp
+   
       VideoReceiveStreamInfo* info = new VideoReceiveStreamInfo(id, remoteSsrc);
       VideoReceiveStream::Config streamConfig(g_transport);
       VideoReceiveStream* stream = g_call->CreateVideoReceiveStream(std::move(streamConfig));
+```
 
 ## AudioSendStream
 一般创建一个AudioSendStream即可，发送本地一个语音流
