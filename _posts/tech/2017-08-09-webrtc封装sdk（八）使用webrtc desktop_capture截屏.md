@@ -14,14 +14,18 @@ desktop_capture中有两种截屏方式，第一种是截单个窗口，叫做Wi
 第二种是截整个屏幕，叫做ScreenCapturer。
 window_capture/screen_capture都继承于基类DesktopCapturer：
 
-    // Abstract interface for screen and window capturers.
-    class DesktopCapturer {
-     public:
-     //初始化截屏，设置数据回调
-      virtual void Start(Callback* callback) = 0;
-      //截一张图，数据直接进入callback
-      virtual void Capture(const DesktopRegion& region) = 0;
-    };
+
+
+```cpp
+// Abstract interface for screen and window capturers.
+class DesktopCapturer {
+public:
+//初始化截屏，设置数据回调
+virtual void Start(Callback* callback) = 0;
+//截一张图，数据直接进入callback
+virtual void Capture(const DesktopRegion& region) = 0;
+};
+```
 
 # 一、WindowCapture
 
