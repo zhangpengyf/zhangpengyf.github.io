@@ -1,9 +1,9 @@
 ---
 layout: post
-title: webrtc封装sdk（二）call api的使用
+title: 使用swig生成跨平台的api
 category: 技术
 tags: PHP
-description: webrtc封装sdk（二）call api的使用
+description: 使用swig生成跨平台的api
 ---
 
 
